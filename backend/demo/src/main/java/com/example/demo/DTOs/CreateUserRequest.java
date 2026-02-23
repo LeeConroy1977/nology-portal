@@ -1,38 +1,32 @@
-package com.example.demo.models;
+package com.example.demo.DTOs;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-import java.util.List;
-
-@Entity(name = "Users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CreateUserRequest {
+    @NotBlank(message = "Company name is required")
     private String companyName;
+
+    @NotBlank(message = "Your name is required")
+    @Size(min = 3, max = 50, message = "Name must be at between 3 and 100 characters long")
     private String contactName;
+
+    @NotBlank(message = "Your phone number is required")
+    @Size(min= 10, max = 18, message = "Please ensure your phone number is between 10 and 20 characters long")
     private String phoneNumber;
+
+    @NotBlank(message = "An email address is required")
+    @Email(message = "Email must be valid")
     private String email;
+
     private String comments;
+
     private Boolean isAdmin;
-
-    @OneToMany(mappedBy = "user")
-    // May add @JsonIgnore
-    private List<Placement> placements;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCompanyName() {
         return companyName;
     }
-
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
@@ -67,14 +61,6 @@ public class User {
 
     public void setIsAdmin(Boolean admin) {
         this.isAdmin = admin;
-    }
-
-    public List<Placement> getPlacements() {
-        return placements;
-    }
-
-    public void setPlacements(List<Placement> placements) {
-        this.placements = placements;
     }
 
     public String getComments() {
