@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="nology" options="-parameters" />
+      <module name="nology" options="" />
     </option>
   </component>
 </project>
