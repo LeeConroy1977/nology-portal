@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useWindowWidth } from "./contexts/WindowWidthContext";
 
 function App() {
-  return <></>;
+  const width = useWindowWidth();
+  return <>{width > 700 ? <p>Hello</p> : null}</>;
 }
 
 export default App;
