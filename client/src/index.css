@@ -1,6 +1,11 @@
-@import "tailwindcss";
+/* Import Tailwind first */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Your custom styles here if needed */
-@theme {
-  /* optional custom theme overrides */
+/* Add custom classes inside @layer utilities */
+@layer utilities {
+  .flexCenter {
+    @apply flex justify-center items-center;
+  }
 }
