@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTOs.ConsultantResponse;
 import com.example.demo.DTOs.CreateConsultantRequest;
-import com.example.demo.DTOs.CreateConsultantResponse;
 import com.example.demo.models.Consultant;
 import com.example.demo.services.ConsultantService;
 import org.springframework.validation.annotation.Validated;
@@ -20,14 +20,14 @@ public class ConsultantController {
     }
 
     @GetMapping
-    public List<CreateConsultantResponse> getAllConsultants() {
+    public List<ConsultantResponse> getAllConsultants() {
         return consultantService.fetchAllConsultants();
     }
 
     @GetMapping
     @RequestMapping("/{id}")
-    public Consultant getConsultantById(@PathVariable Long id) {
-        return consultantService.fetchConsultantById(id);
+    public ConsultantResponse getConsultantById(@PathVariable Long id) {
+        return consultantService.fetchConsultantByIdWithProjects(id);
     }
 
     @PostMapping
