@@ -9,15 +9,15 @@ public class CreateUserRequest {
     private String companyName;
 
     @NotBlank(message = "Your name is required")
-    @Size(min = 3, max = 50, message = "Name must be at between 3 and 100 characters long")
+    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters long")
     private String contactName;
 
     @NotBlank(message = "Your phone number is required")
-    @Size(min= 10, max = 18, message = "Please ensure your phone number is between 10 and 20 characters long")
+    @Size(min= 10, max = 20, message = "Please ensure your phone number is between 10 and 20 characters long")
     private String phoneNumber;
 
     @NotBlank(message = "An email address is required")
-    @Email(message = "Email must be valid")
+    @Email(message = "Please provide a valid email address")
     private String email;
 
     private String comments;

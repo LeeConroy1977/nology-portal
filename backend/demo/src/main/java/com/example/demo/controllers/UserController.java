@@ -4,6 +4,7 @@ import com.example.demo.DTOs.CreateUserRequest;
 import com.example.demo.models.User;
 import com.example.demo.services.UserService;
 import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@Valid @RequestBody CreateUserRequest newUser) {
+    public User createUser(@Validated @RequestBody CreateUserRequest newUser) {
         return userService.createUser(newUser);
     }
 }
