@@ -14,7 +14,7 @@ const ConsultantCard = ({ consultant }) => {
       <img
         src={imageUrl}
         alt=""
-        className="rounded-full border-8 border-purple-500 w-[84%] "
+        className="rounded-full border-8 border-purple-500 md:border-[5px] w-[84%] "
       />
       <div className="flex flex-col mt-6 md:mt-4 w-full h-full p-2">
         <p className="text-[1.4rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.2rem] font-bold text-[#2A2D43]">
