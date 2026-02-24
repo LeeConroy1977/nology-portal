@@ -1,9 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.DTOs.CreateProjectRequest;
-import com.example.demo.DTOs.ProjectResponse;
 import com.example.demo.services.ProjectService;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +13,5 @@ public class ProjectController {
         this.projectService = projectService;
     }
 
-    @DeleteMapping
-
-
+//    @DeleteMapping
 }

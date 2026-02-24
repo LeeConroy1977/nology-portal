@@ -6,7 +6,6 @@ import com.example.demo.DTOs.ProjectResponse;
 import com.example.demo.models.Consultant;
 import com.example.demo.models.Project;
 import com.example.demo.repositories.ConsultantRepository;
-import com.example.demo.repositories.ProjectRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +16,8 @@ public class ConsultantService {
 
     private final ConsultantRepository consultantRepo;
 
-    public ConsultantService(ConsultantRepository consultantRepo, ProjectRepository projectRepo) {
+    public ConsultantService(ConsultantRepository consultantRepo) {
         this.consultantRepo = consultantRepo;
-        this.projectRepo = projectRepo;
     }
 
     public List<ConsultantResponse> fetchAllConsultants() {
