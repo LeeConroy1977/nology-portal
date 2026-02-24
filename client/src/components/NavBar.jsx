@@ -14,7 +14,7 @@ const NavBar = ({ setIsOpen }) => {
   };
 
   return (
-    <nav className="flex justify-between items-center h-[4.4rem]  px-[2rem] sm:px-[4rem] lg:px-[7rem] py-0 bg-white">
+    <nav className="flex justify-between items-center h-[4.4rem]  px-[2rem] sm:px-[4rem] lg:px-[7rem] xl:h-[4.8rem] 2xl:h-[5rem] py-0 bg-white">
       <div className="bg-purple-500 h-full px-[1rem] flexCenter">
         <p className="text-white font-semibold text-[1.2rem] ">_nology</p>
       </div>
@@ -25,7 +25,7 @@ const NavBar = ({ setIsOpen }) => {
           onClick={handleHamburgerClick}
         />
       ) : (
-        <ul className="flex gap-12 cursor-pointer font-semibold">
+        <ul className="flex gap-12 xl:gap-16 cursor-pointer font-semibold xl:text-[1.1rem] 2xl:text-[1.2rem] ">
           {isAdmin && (
             <li>
               <NavLink

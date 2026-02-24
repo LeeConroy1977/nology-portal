@@ -10,7 +10,7 @@ export default {
     screens: {
       xs: "480px", // new extra small
       sm: "640px", // default
-      md: "768px",
+      md: "769px",
       lg: "1024px",
       xl: "1280px",
       "2xl": "1601px",

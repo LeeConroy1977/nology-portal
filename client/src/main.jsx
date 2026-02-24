@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { WindowWidthProvider } from "./contexts/WindowWidthContext.jsx";
 import { UserProvider } from "./contexts/UserContext.jsx";
 import { NewUserProvider } from "./contexts/NewUserContext.jsx";
+import { ConsultantsProvider } from "./contexts/ConsultantsContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")).render(
       <WindowWidthProvider>
         <UserProvider>
           <NewUserProvider>
-            <App />
+            <ConsultantsProvider>
+              <App />
+            </ConsultantsProvider>
           </NewUserProvider>
         </UserProvider>
       </WindowWidthProvider>
