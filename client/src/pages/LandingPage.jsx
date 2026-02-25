@@ -17,7 +17,7 @@ const LandingPage = () => {
       <p className="text-[2.6rem] xl:text-[3rem] mt-4">Portal</p>
       <button
         onClick={handleNavigation}
-        className="mt-40 py-4 px-24 border-purple-500 border-2 rounded-lg text-[1.2rem] text-purple-500">
+        className="mt-40 py-4 px-24 border-purple-500 border-2 rounded-lg text-[1.2rem] font-bold text-purple-500 bg-white">
         Enter
       </button>
     </div>
