@@ -7,12 +7,12 @@ const ConsultantsContext = createContext();
 export function ConsultantsProvider({ children }) {
   const [consultants, setConsultants] = useState([]);
 
-  const getAllConsultants = () => {
+  const fetchAllConsultants = () => {
     setConsultants([...consultantsData]);
   };
 
   return (
-    <ConsultantsContext.Provider value={{ consultants, getAllConsultants }}>
+    <ConsultantsContext.Provider value={{ consultants, fetchAllConsultants }}>
       {" "}
       {children}
     </ConsultantsContext.Provider>

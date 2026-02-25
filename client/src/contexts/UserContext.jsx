@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from "react";
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState({ isAdmin: true });
+  const [user, setUser] = useState();
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

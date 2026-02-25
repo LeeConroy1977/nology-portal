@@ -1,16 +1,22 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useWindowWidth } from "../contexts/WindowWidthContext";
 import { useUser } from "../contexts/UserContext";
-import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const NavBar = ({ setIsOpen }) => {
   const width = useWindowWidth();
-  const { user } = useUser();
-  const { isAdmin } = user;
+  const { user, setUser } = useUser();
+
+  const navigate = useNavigate();
 
   const handleHamburgerClick = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const handleSignOut = () => {
+    setUser(null);
+    navigate("/sign-in");
   };
 
   return (
@@ -18,49 +24,51 @@ const NavBar = ({ setIsOpen }) => {
       <div className="bg-purple-500 h-full px-[1rem] flexCenter">
         <p className="text-white font-semibold text-[1.2rem] ">_nology</p>
       </div>
+      {user &&
+        (width <= 768 ? (
+          <GiHamburgerMenu
+            className="size-[1.8rem] text-[#2A2D43]"
+            onClick={handleHamburgerClick}
+          />
+        ) : (
+          <ul className="flex gap-12 xl:gap-16 cursor-pointer font-semibold xl:text-[1.1rem] 2xl:text-[1.2rem] ">
+            {user && user.isAdmin && (
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-purple-500" : "text-[#2A2D43]"
+                  }
+                  to="/placements">
+                  View placements
+                </NavLink>
+              </li>
+            )}
 
-      {width <= 768 ? (
-        <GiHamburgerMenu
-          className="size-[1.8rem] text-[#2A2D43]"
-          onClick={handleHamburgerClick}
-        />
-      ) : (
-        <ul className="flex gap-12 xl:gap-16 cursor-pointer font-semibold xl:text-[1.1rem] 2xl:text-[1.2rem] ">
-          {isAdmin && (
+            {user && !user.isAdmin && (
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-purple-500" : "text-[#2A2D43]"
+                  }
+                  to="/selections">
+                  View selections
+                </NavLink>
+              </li>
+            )}
+
             <li>
               <NavLink
                 className={({ isActive }) =>
                   isActive ? "text-purple-500" : "text-[#2A2D43]"
                 }
-                to="/placements">
-                View placements
+                to="/consultants">
+                Consultants
               </NavLink>
             </li>
-          )}
-          {!isAdmin && (
-            <li>
-              {" "}
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-purple-500" : "text-[#2A2D43]"
-                }
-                to="/selections">
-                View selections
-              </NavLink>
-            </li>
-          )}
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-purple-500" : "text-[#2A2D43]"
-              }
-              to="/consultants">
-              Consultants
-            </NavLink>
-          </li>
-          <li>Sign out</li>
-        </ul>
-      )}
+
+            <li onClick={handleSignOut}>Sign out</li>
+          </ul>
+        ))}
     </nav>
   );
 };

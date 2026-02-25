@@ -7,6 +7,8 @@ import { WindowWidthProvider } from "./contexts/WindowWidthContext.jsx";
 import { UserProvider } from "./contexts/UserContext.jsx";
 import { NewUserProvider } from "./contexts/NewUserContext.jsx";
 import { ConsultantsProvider } from "./contexts/ConsultantsContext.jsx";
+import { ConsultantProvider } from "./contexts/ConsultantContext.jsx";
+import { PlacementsProvider } from "./contexts/PlacementsContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,7 +17,11 @@ createRoot(document.getElementById("root")).render(
         <UserProvider>
           <NewUserProvider>
             <ConsultantsProvider>
-              <App />
+              <ConsultantProvider>
+                <PlacementsProvider>
+                  <App />
+                </PlacementsProvider>
+              </ConsultantProvider>
             </ConsultantsProvider>
           </NewUserProvider>
         </UserProvider>

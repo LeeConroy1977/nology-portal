@@ -1,11 +1,12 @@
 import React from "react";
 
-const ConsultantCard = ({ consultant }) => {
-  const { name, location, email, githubLink, phoneNumber, imageUrl } =
+const ConsultantCard = ({ consultant, handleClick }) => {
+  const { id, name, location, email, githubLink, phoneNumber, imageUrl } =
     consultant;
 
   return (
     <div
+      onClick={() => handleClick(id)}
       className="flex flex-col justify-start items-center 
                     w-[80%] sm:w-[300px] md:w-[22%] lg:w-[20%] 2xl:w-[15%]
                     h-[500px] sm:h-[480px] md:h-[360px] lg:h-[390px] xl:h-[500px] 2xl:h-[460px]
