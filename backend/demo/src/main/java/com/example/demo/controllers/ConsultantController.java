@@ -37,10 +37,10 @@ public class ConsultantController {
     }
 
     @DeleteMapping
-    @RequestMapping("/{id}")
-    public ResponseEntity<String> deleteConsultant(@PathVariable Long id) {
-        consultantService.deleteConsultantById(id);
+    @RequestMapping("/{consultantId}")
+    public ResponseEntity<String> deleteConsultant(@PathVariable Long consultantId) {
+        consultantService.deleteConsultantById(consultantId);
         return ResponseEntity.ok(String.format(
-                "Consultant with ID: %d successfully deleted from the database", id));
+                "Consultant with ID: %d successfully deleted from the database", consultantId));
     }
 }
