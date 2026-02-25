@@ -50,6 +50,14 @@ public class ConsultantService {
         return consultantRepo.save(consultant);
     }
 
+    public void deleteConsultantById(Long id) {
+        consultantRepo.findById(id).orElseThrow(() ->
+                new EntityNotFoundException(String.format(
+                        "Consultant with ID: %d, was not found", id))
+        );
+        consultantRepo.deleteById(id);
+    }
+
     private ConsultantResponse mapToResponse(Consultant consultant) {
         List<ProjectResponse> projects = consultant.getProjects().stream().map(this::mapProjectToResponse).toList();
         return new ConsultantResponse(

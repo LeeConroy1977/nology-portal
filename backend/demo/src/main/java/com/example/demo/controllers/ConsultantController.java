@@ -4,6 +4,7 @@ import com.example.demo.DTOs.ConsultantResponse;
 import com.example.demo.DTOs.CreateConsultantRequest;
 import com.example.demo.models.Consultant;
 import com.example.demo.services.ConsultantService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,5 +34,13 @@ public class ConsultantController {
     @PostMapping
     public Consultant createConsultant(@Validated @RequestBody CreateConsultantRequest newConsultant) {
         return consultantService.createNewConsultant(newConsultant);
+    }
+
+    @DeleteMapping
+    @RequestMapping("/{id}")
+    public ResponseEntity<String> deleteConsultant(@PathVariable Long id) {
+        consultantService.deleteConsultantById(id);
+        return ResponseEntity.ok(String.format(
+                "Consultant with ID: %d successfully deleted from the database", id));
     }
 }
