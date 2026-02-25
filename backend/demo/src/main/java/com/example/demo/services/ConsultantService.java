@@ -21,7 +21,7 @@ public class ConsultantService {
     }
 
     public List<ConsultantResponse> fetchAllConsultants() {
-        return consultantRepo.findAll().stream().map(this::mapToResponse).toList();
+        return consultantRepo.findAllByOrderByNameAsc().stream().map(this::mapToResponse).toList();
     }
 
     public ConsultantResponse fetchConsultantByIdWithProjects(Long id) {

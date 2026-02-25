@@ -1,8 +1,11 @@
 package com.example.demo.services;
 
 
-//@Service
-//public class PlacementService {
+import com.example.demo.repositories.PlacementRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class PlacementService {
 //    private final PlacementRepository placementRepo;
 //
 //    public PlacementService(PlacementRepository placementRepo) {
@@ -21,4 +24,4 @@ package com.example.demo.services;
 //                );
 //
 //    }
-//}
+}

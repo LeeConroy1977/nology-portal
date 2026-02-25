@@ -29,4 +29,9 @@ public class UserController {
     public List<UserResponse> fetchUsersWhoHavePlacements() {
         return userService.getAllUsersWithPlacements();
     }
+
+    @GetMapping("/{id}/consultants-list")
+    public UserResponse getUserById(@PathVariable Long id) {
+        return userService.fetchUserById(id);
+    }
 }

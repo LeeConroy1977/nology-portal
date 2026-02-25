@@ -1,10 +1,13 @@
 package com.example.demo.services;
 
+import com.example.demo.DTOs.ConsultantResponse;
 import com.example.demo.DTOs.CreateUserRequest;
 import com.example.demo.DTOs.UserResponse;
+import com.example.demo.models.Consultant;
 import com.example.demo.models.Placement;
 import com.example.demo.models.User;
 import com.example.demo.repositories.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -40,10 +43,48 @@ public class UserService {
 
     public List<UserResponse> getAllUsersWithPlacements() {
         // Return all employers that have placements
-        List<User> users = userRepo.findAll().stream().filter(
+        List<User> users = userRepo.findAllByOrderByCompanyNameAsc().stream().filter(
                 user -> !user.getPlacements().isEmpty() && !user.getIsAdmin()).toList();
 
         return users.stream().map(this::mapToUserResponse).toList();
+    }
+
+    public UserResponse fetchUserById(Long id) {
+        User user = userRepo.findById(id).orElseThrow(() ->
+                new EntityNotFoundException(String.format(
+                        "User with ID: %d, was not found", id))
+        );
+
+        List<List<ConsultantResponse>> listOfConsultants = new ArrayList<>();
+        // Will only run once because current employer can only make one list of placements
+        for (Placement placement: user.getPlacements()) {
+            List<ConsultantResponse> listOfConsultantResponse = placement.getConsultants().stream().map(
+                    this::mapToConsultantResponse).toList();
+            listOfConsultants.add(listOfConsultantResponse);
+        }
+        return mapToUserResponse(user, listOfConsultants);
+    }
+
+    private UserResponse mapToUserResponse(User user, List<List<ConsultantResponse>> listOfConsultants) {
+        return new UserResponse(
+                user.getCompanyName(),
+                listOfConsultants,
+                user.getContactName(),
+                user.getPhoneNumber(),
+                user.getEmail(),
+                user.getComments()
+        );
+    }
+
+    private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
+        return new ConsultantResponse(
+                consultant.getName(),
+                consultant.getLocation(),
+                consultant.getEmail(),
+                consultant.getImageUrl(),
+                consultant.getGithubLink(),
+                consultant.getPhoneNumber()
+        );
     }
 
     private UserResponse mapToUserResponse(User user) {
