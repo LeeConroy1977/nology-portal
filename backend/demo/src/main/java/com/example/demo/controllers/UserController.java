@@ -18,10 +18,11 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    private PlacementService placementService;
+    private final PlacementService placementService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PlacementService placementService) {
         this.userService = userService;
+        this.placementService = placementService;
     }
 
     @PostMapping
@@ -49,6 +50,7 @@ public class UserController {
     public ResponseEntity<String> createPlacementListForUser(@PathVariable Long id,
                                                              @RequestBody CreatePlacementRequest newPlacementRequest) {
         placementService.createPlacementListForUser(id, newPlacementRequest);
+        return ResponseEntity.ok("Successfully submitted your placements!");
     }
 }
 
