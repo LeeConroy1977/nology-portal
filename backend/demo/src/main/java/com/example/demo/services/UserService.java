@@ -1,9 +1,14 @@
 package com.example.demo.services;
 
 import com.example.demo.DTOs.CreateUserRequest;
+import com.example.demo.DTOs.UserResponse;
+import com.example.demo.models.Placement;
 import com.example.demo.models.User;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -31,5 +36,20 @@ public class UserService {
         // role
         user.setIsAdmin(newUser.getIsAdmin());
         return userRepo.save(user);
+    }
+
+    public List<UserResponse> getAllUsersWithPlacements() {
+        // Return all employers that have placements
+        List<User> users = userRepo.findAll().stream().filter(
+                user -> !user.getPlacements().isEmpty() && !user.getIsAdmin()).toList();
+
+        return users.stream().map(this::mapToUserResponse).toList();
+    }
+
+    private UserResponse mapToUserResponse(User user) {
+        return new UserResponse(
+                user.getCompanyName(),
+                user.getPlacements()
+        );
     }
 }
