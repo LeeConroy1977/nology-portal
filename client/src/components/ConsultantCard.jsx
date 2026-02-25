@@ -10,7 +10,7 @@ const ConsultantCard = ({ consultant, handleClick }) => {
       className="flex flex-col justify-start items-center 
                     w-[80%] sm:w-[300px] md:w-[22%] lg:w-[20%] 2xl:w-[15%]
                     h-[500px] sm:h-[480px] md:h-[360px] lg:h-[390px] xl:h-[500px] 2xl:h-[460px]
-                    mt-1 p-6 bg-white rounded-lg cursor-pointer">
+                    mt-1 p-6 bg-white rounded-lg cursor-pointer shadow-xl">
       {" "}
       <img
         src={imageUrl}

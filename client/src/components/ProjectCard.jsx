@@ -3,7 +3,7 @@ import React from "react";
 const ProjectCard = ({ project }) => {
   const { projectName, description, imageUrl, githubLink } = project;
   return (
-    <div className="w-[90%] sm:w-[46%] h-[400px] shadow-xl mt-8 rounded-lg">
+    <div className="w-[90%] sm:w-[46%] md:w-[42%] lg:w-[30%] 2xl:w-[26%]  h-[400px] shadow-xl mt-8 rounded-lg">
       <img
         src={imageUrl}
         alt=""

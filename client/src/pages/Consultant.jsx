@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useConsultant } from "../contexts/ConsultantContext";
 import ProjectCard from "../components/ProjectCard";
 import { useWindowWidth } from "../contexts/WindowWidthContext";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const Consultant = () => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ const Consultant = () => {
     phoneNumber,
     projects,
   } = consultant;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchConsultantById(id);
@@ -29,12 +31,18 @@ const Consultant = () => {
   console.log(consultant);
 
   return (
-    <div className="flex flex-col items-center justify-start w-screen min-h-full bg-white pb-12 sm:p-8 xl:p-16">
+    <div className="flex flex-col items-center justify-start w-screen min-h-full bg-white pb-12 sm:p-8 xl:p-16 xl:py-10">
       {consultant && (
         <>
-          <div className="flex flex-col items-center justify-start mt-12 sm:mt-8 ">
-            <div className="lg:flex flex-row">
-              <div className="flex flex-col items-center justify-start lg:w-[40%] lg:mt-8 ">
+          <div
+            onClick={() => navigate(-1)}
+            className="text-purple-500 text-[1.2rem] sm:text-[1.3rem] xl:text-[1.5rem] font-semibold mr-auto pl-8 md:pl-20 xl:pl-24 2xl:pl-32 mt-4 xl:mt-0 flex items-center justify-center cursor-pointer">
+            <FaLongArrowAltLeft className="mr-2 text-[1.6rem] sm:text-[2rem] xl:text-[2.8rem]" />{" "}
+            back
+          </div>
+          <div className="flex flex-col items-center justify-start mt-7 sm:mt-8 ">
+            <div className="md:flex flex-row xl:px-16">
+              <div className="flex flex-col items-center justify-start md:w-[40%] md:mt-8 ">
                 <img
                   src={imageUrl}
                   alt=""
@@ -50,8 +58,8 @@ const Consultant = () => {
                   {email}
                 </p>
               </div>
-              <div className="flex flex-col-reverse md:flex-col items-center lg:justify-start w-full lg:w-[60%] mt-8 p-8 lg:mt-0 lg:p-0 lg:px-20">
-                <p className="mt-6 font-medium lg:font-bold text-[#2A2D43] text-[1.2rem] lg:text-[1.8rem] md:mt-16 lg:mt-8">
+              <div className="flex flex-col-reverse md:flex-col items-center lg:justify-start w-full md:w-[60%] mt-8 p-8 md:mt-0 lg:p-0 lg:px-20">
+                <p className="mt-6 font-medium lg:font-bold text-[#2A2D43] text-[1.2rem] md:text-[1.3rem] lg:text-[1.5rem] xl:text-[1.8rem] 2xl:text-[2rem] md:mt-8 lg:mt-8">
                   {bio}
                 </p>
                 {width <= 768 && (
@@ -60,14 +68,14 @@ const Consultant = () => {
                   </h2>
                 )}
 
-                <button className="text-[1.2rem] w-[75%] sm:w-[50%] h-[70px] bg-purple-500 text-white font-semibold rounded-lg lg:ml-auto mt-8 lg:mt-20 xl:mt-24 xl:mr-12">
+                <button className="text-[1.2rem] xl:text-[1.4rem] w-[75%] sm:w-[50%] h-[70px] bg-purple-500 text-white font-bold rounded-lg md:ml-auto mt-8 md:mt-20 xl:mt-24 md:mr-12">
                   Select Consultant
                 </button>
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center w-full p-8">
-            <h2 className="font-bold text-[1.4rem] text-purple-500 mr-auto  ">
+          <div className="flex flex-col items-center w-full p-8 md:px-20 xl:px-24 2xl:px-28  md:mt-8 lg:mt-8 xl:mt-16">
+            <h2 className="font-bold text-[1.4rem] xl:text-[1.8rem]  text-purple-500 mr-auto  ">
               Projects
             </h2>
             <div className="flex flex-col sm:flex-row justify-center items-center sm:flex-wrap    gap-4 sm:gap-10">
@@ -77,19 +85,19 @@ const Consultant = () => {
                 })}
             </div>
           </div>
-          <div className="flex flex-col items-center w-full p-8">
-            <h2 className="font-bold text-[1.4rem] text-purple-500 mr-auto  ">
+          <div className="flex flex-col items-center w-full p-8 md:px-20 lg:mt-12 xl:px-20 ">
+            <h2 className="font-bold text-[1.4rem]  xl:text-[1.8rem]  text-purple-500 mr-auto  ">
               Technologies
             </h2>
-            <p className="mt-6 font-medium text-[#2A2D43] text-[1.2rem] mr-auto ">
+            <p className="mt-6 font-medium text-[#2A2D43] text-[1.2rem] xl:text-[1.4rem]  mr-auto ">
               {techStack}
             </p>
           </div>
-          <div className="flex flex-col items-center w-full px-8 py-4">
-            <h2 className="font-bold text-[1.4rem] text-purple-500 mr-auto  ">
+          <div className="flex flex-col items-center w-full px-8 md:px-20  py-4 xl:px-20 ">
+            <h2 className="font-bold text-[1.4rem] xl:text-[1.8rem]  text-purple-500 mr-auto  ">
               Review
             </h2>
-            <p className=" font-medium text-[#2A2D43] text-[1.2rem] mt-4">
+            <p className=" font-medium text-[#2A2D43] text-[1.2rem] xl:text-[1.4rem] mt-4">
               {review}
             </p>
           </div>
