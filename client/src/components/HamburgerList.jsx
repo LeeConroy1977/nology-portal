@@ -1,20 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useWindowWidth } from "../contexts/WindowWidthContext";
 import { useUser } from "../contexts/UserContext";
 
 const HamburgerList = ({ handleClick }) => {
-  const { user } = useUser();
-  const { isAdmin } = user;
+  const { user, setUser } = useUser();
+
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    setUser(null);
+    handleClick();
+    navigate("/sign-in");
+  };
+
   return (
     <div className="h-screen w-screen bg-white p-8 sm:p-16 absolute ">
       <ul className="flex gap-10 cursor-pointer lex flex-col text-[#2A2D43] text-[1.3rem]  font-semibold">
-        {isAdmin && (
+        {user && user.isAdmin && (
           <li onClick={handleClick}>
             <Link to="/placements">View placements</Link>
           </li>
         )}
-        {!isAdmin && (
+        {user && !user.isAdmin && (
           <li onClick={handleClick}>
             {" "}
             <Link to="/selections">View selections</Link>
@@ -23,7 +31,7 @@ const HamburgerList = ({ handleClick }) => {
         <li onClick={handleClick}>
           <Link to="/consultants">Consultants</Link>
         </li>
-        <li onClick={handleClick}>Sign out</li>
+        <li onClick={handleSignOut}>Sign out</li>
       </ul>
     </div>
   );

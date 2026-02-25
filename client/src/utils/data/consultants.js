@@ -6,11 +6,58 @@ export const consultantsData = [
     email: "alex.morgan@example.com",
     githubLink: "https://github.com/alexmorgan",
     imageUrl: "https://i.pravatar.cc/300?img=1",
-    bio: "Alex is a senior full-stack consultant with over 8 years of experience building scalable web applications for startups and enterprise clients. He specialises in designing robust backend architectures and seamless frontend experiences, with a strong focus on performance, maintainability, and cloud-native solutions. Alex has led multiple cross-functional teams and is passionate about writing clean, testable code while mentoring junior developers.",
+    bio: '"Alex is a senior full-stack consultant with over 8 years of experience building scalable web applications for startups and enterprise clients. He specialises in designing robust backend architectures and seamless frontend experiences."',
     review:
       "Working with Alex was a fantastic experience from start to finish. He quickly understood our business requirements, proposed scalable technical solutions, and delivered high-quality code ahead of schedule. His communication was clear, professional, and proactive throughout the project, and he consistently went above and beyond to ensure everything was implemented correctly. I would highly recommend him to any team looking for a reliable and highly skilled consultant.",
     techStack: "React, Spring Boot, AWS, PostgreSQL",
     phoneNumber: "07700 900001",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 2,
