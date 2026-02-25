@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { NewUser } from "../contexts/NewUserContext";
 import { useNavigate } from "react-router";
+import { useUser } from "../contexts/UserContext";
 
 const EmployerForm = () => {
   const { createUser } = NewUser();
+  const { setIsFormData } = useUser();
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     companyName: "",
@@ -41,6 +43,7 @@ const EmployerForm = () => {
     if (isValid) {
       createUser(newUser);
       resetUser();
+      setIsFormData(true);
       navigate("/consultants");
     } else {
       alert("Please fill all required fields correctly.");

@@ -4,7 +4,7 @@ import { useWindowWidth } from "../contexts/WindowWidthContext";
 import { useUser } from "../contexts/UserContext";
 
 const HamburgerList = ({ handleClick }) => {
-  const { user, setUser } = useUser();
+  const { user, setUser, isFormData } = useUser();
 
   const navigate = useNavigate();
 
@@ -22,15 +22,18 @@ const HamburgerList = ({ handleClick }) => {
             <Link to="/placements">View placements</Link>
           </li>
         )}
-        {user && !user.isAdmin && (
-          <li onClick={handleClick}>
-            {" "}
-            <Link to="/selections">View selections</Link>
-          </li>
+        {user && !user.isAdmin && isFormData && (
+          <>
+            <li onClick={handleClick}>
+              {" "}
+              <Link to="/selections">View selections</Link>
+            </li>
+
+            <li onClick={handleClick}>
+              <Link to="/consultants">Consultants</Link>
+            </li>
+          </>
         )}
-        <li onClick={handleClick}>
-          <Link to="/consultants">Consultants</Link>
-        </li>
         <li onClick={handleSignOut}>Sign out</li>
       </ul>
     </div>

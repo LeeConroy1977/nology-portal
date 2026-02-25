@@ -4,9 +4,10 @@ const UserContext = createContext();
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState();
+  const [isFormData, setIsFormData] = useState(false);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, isFormData, setIsFormData }}>
       {children}
     </UserContext.Provider>
   );
