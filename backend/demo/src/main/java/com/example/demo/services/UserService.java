@@ -26,17 +26,11 @@ public class UserService {
             throw new IllegalArgumentException("Email already in use: " + newUser.getEmail());
         }
         User user = new User();
-        // company Name
         user.setCompanyName(newUser.getCompanyName());
-        // contact name
         user.setContactName(newUser.getContactName());
-        // phone number
         user.setPhoneNumber(newUser.getPhoneNumber());
-        // email
         user.setEmail(newUser.getEmail());
-        // comments
         user.setComments(newUser.getComments());
-        // role
         user.setIsAdmin(newUser.getIsAdmin());
         return userRepo.save(user);
     }
@@ -63,6 +57,20 @@ public class UserService {
             listOfConsultants.add(listOfConsultantResponse);
         }
         return mapToUserResponse(user, listOfConsultants);
+    }
+
+    public UserResponse fetchUserByIdWithSelectedConsultants(Long id) {
+        User user = userRepo.findById(id).orElseThrow(() ->
+                new EntityNotFoundException(String.format(
+                        "User with ID: %d, was not found", id))
+        );
+        List<List<ConsultantResponse>> listOfConsultants = new ArrayList<>();
+        for (Placement placement: user.getPlacements()) {
+            List<ConsultantResponse> listOfConsultantResponse = placement.getConsultants().stream().map(
+                    this::mapToConsultantResponse).toList();
+            listOfConsultants.add(listOfConsultantResponse);
+        }
+        return new UserResponse(listOfConsultants);
     }
 
     private UserResponse mapToUserResponse(User user, List<List<ConsultantResponse>> listOfConsultants) {

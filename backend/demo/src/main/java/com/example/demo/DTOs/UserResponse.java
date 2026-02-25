@@ -5,7 +5,7 @@ import com.example.demo.models.Placement;
 import java.util.List;
 
 public class UserResponse {
-    private final String companyName;
+    private String companyName;
     private List<Placement> listOfPlacements;
     private List<List<ConsultantResponse>> listOfConsultants;
     private String contactName;
@@ -30,6 +30,10 @@ public class UserResponse {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.comments = comments;
+    }
+
+    public UserResponse(List<List<ConsultantResponse>> listOfConsultants) {
+        this.listOfConsultants = listOfConsultants;
     }
 
     public String getCompanyName() {
