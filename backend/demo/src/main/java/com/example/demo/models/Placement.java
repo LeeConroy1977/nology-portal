@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,6 +17,7 @@ public class Placement {
     private User user;
 
     @OneToMany(mappedBy = "placement")
+    @JsonManagedReference
     private List<Consultant> consultants;
 
     public Long getId() {

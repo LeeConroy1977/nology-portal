@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class Consultant {
 
     @ManyToOne
     @JoinColumn(name = "placement_id")
+    @JsonBackReference
     private Placement placement;
 
     public Long getId() {
