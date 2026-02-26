@@ -10,7 +10,10 @@ public class ConsultantResponse {
     private final String githubLink;
     private final String imageUrl;
     private final String phoneNumber;
-    private List<ProjectResponse> projects;
+    private final String bio;
+    private final String review;
+    private final String techStack;
+    private final List<ProjectResponse> projects;
 
     // Will be used for "api/v1/consultants" (GET)
     public ConsultantResponse(Long id,
@@ -20,6 +23,9 @@ public class ConsultantResponse {
                               String imageUrl,
                               String githubLink,
                               String phoneNumber,
+                              String bio,
+                              String review,
+                              String techStack,
                               List<ProjectResponse> projects
     ) {
         this.id = id;
@@ -29,16 +35,10 @@ public class ConsultantResponse {
         this.imageUrl = imageUrl;
         this.githubLink = githubLink;
         this.phoneNumber = phoneNumber;
+        this.bio = bio;
+        this.review = review;
+        this.techStack = techStack;
         this.projects = projects;
-    }
-
-    public ConsultantResponse(String phoneNumber, String imageUrl, String githubLink, String email, String location, String name) {
-        this.phoneNumber = phoneNumber;
-        this.imageUrl = imageUrl;
-        this.githubLink = githubLink;
-        this.email = email;
-        this.location = location;
-        this.name = name;
     }
 
     public Long getId() {
@@ -67,6 +67,18 @@ public class ConsultantResponse {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public String getTechStack() {
+        return techStack;
+    }
+
+    public String getBio() {
+        return bio;
     }
 
     public List<ProjectResponse> getProjects() {

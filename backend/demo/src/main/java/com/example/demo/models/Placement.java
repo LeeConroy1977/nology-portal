@@ -1,7 +1,5 @@
 package com.example.demo.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,8 +14,7 @@ public class Placement {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "placement")
-    @JsonManagedReference
+    @OneToMany(mappedBy = "placement", cascade = CascadeType.REMOVE)
     private List<Consultant> consultants;
 
     public Long getId() {

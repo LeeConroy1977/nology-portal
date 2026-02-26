@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class Catalina4Application {
 
-	 public static void main(String[] args) {
+	public static void main(String[] args) {
 		SpringApplication.run(Catalina4Application.class, args);
 	}
 
@@ -20,8 +20,7 @@ public class Catalina4Application {
 			@Override
 			public void addCorsMappings(@NonNull CorsRegistry registry) {
 				registry.addMapping("/**").allowedOrigins(
-								"http://localhost:*"
-								)
+						"http://localhost:5173")
 						.allowedMethods("*")
 						.allowedHeaders("*")
 						.allowCredentials(true);

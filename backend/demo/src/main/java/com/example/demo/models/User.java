@@ -16,7 +16,7 @@ public class User {
     private String comments;
     private Boolean isAdmin;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     // May add @JsonIgnore
     private List<Placement> placements;
 
