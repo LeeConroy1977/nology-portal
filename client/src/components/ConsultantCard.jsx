@@ -1,8 +1,12 @@
 import React from "react";
+import { TiDeleteOutline } from "react-icons/ti";
+import { useLocation } from "react-router-dom";
 
 const ConsultantCard = ({ consultant, handleClick }) => {
-  const { id, name, location, email, githubLink, phoneNumber, imageUrl } =
-    consultant;
+  const location = useLocation();
+  const { id, name, email, githubLink, phoneNumber, imageUrl } = consultant;
+
+  const isSelectionPath = location.pathname === "/selections";
 
   return (
     <div
@@ -10,19 +14,22 @@ const ConsultantCard = ({ consultant, handleClick }) => {
       className="flex flex-col justify-start items-center 
                     w-[100%] sm:w-[300px] md:w-[22%] lg:w-[20%] 2xl:w-[20%]
                     h-[500px] sm:h-[480px] md:h-[360px] lg:h-[390px] xl:h-[460px] 2xl:h-[450px]
-                    mt-1 p-6 bg-white rounded-lg cursor-pointer shadow-xl">
+                    mt-1 p-6 bg-white rounded-lg cursor-pointer shadow-xl relative">
       {" "}
       <img
         src={imageUrl}
         alt=""
         className="rounded-full border-8 border-purple-500 md:border-[5px] w-[72%] sm:w-[76%] md:w-[80%] xl:w-[73%] 2xl:w-[68%] "
       />
+      {isSelectionPath && (
+        <TiDeleteOutline className="absolute top-2 right-2 text-[2rem] text-[#2A2D43]" />
+      )}
       <div className="flex flex-col mt-6 md:mt-4 w-full h-full p-2">
         <p className="text-[1.4rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.2rem] font-bold text-[#2A2D43]">
           {name}
         </p>
         <p className="mt-1 text-[1.1rem] md:text-[0.8rem] lg:text-[0.9rem] xl:text-[1.1rem] 2xl:text-[1rem] font-semibold text-[#2A2D43]">
-          {location}
+          {consultant.location}
         </p>
         <p className="mt-1 text-[1.1rem] md:text-[0.8rem] lg:text-[0.9rem] xl:text-[1.1rem] 2xl:text-[1rem]   font-semibold text-[#2A2D43]">
           {phoneNumber}

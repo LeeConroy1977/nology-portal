@@ -1,6 +1,7 @@
 import { createContext, useState, useContext } from "react";
 
 import { consultantsData } from "../utils/data/consultants";
+import { getAllConsultants } from "../utils/api";
 
 const ConsultantsContext = createContext();
 
@@ -8,8 +9,11 @@ export function ConsultantsProvider({ children }) {
   const [consultants, setConsultants] = useState([]);
   const [selectedConsultants, setSelectedConsultants] = useState([]);
 
-  const fetchAllConsultants = () => {
-    setConsultants([...consultantsData]);
+  const fetchAllConsultants = async () => {
+    const response = await getAllConsultants();
+    setConsultants(response);
+
+    // setConsultants([...consultantsData]);
   };
 
   const handleSelectedConsultants = (id) => {
@@ -22,6 +26,16 @@ export function ConsultantsProvider({ children }) {
     setSelectedConsultants((prev) => [selected, ...prev]);
   };
 
+  const handleDeleteSelectedUser = (id) => {
+    // if (selectedConsultants.find((c) => c.id !== id)) {
+    //   console.log("this ran");
+    //   return;
+    // }
+
+    const filteredSelection = selectedConsultants.filter((c) => c.id !== id);
+    setSelectedConsultants([...filteredSelection]);
+  };
+
   return (
     <ConsultantsContext.Provider
       value={{
@@ -30,6 +44,7 @@ export function ConsultantsProvider({ children }) {
         selectedConsultants,
         setSelectedConsultants,
         handleSelectedConsultants,
+        handleDeleteSelectedUser,
       }}>
       {" "}
       {children}

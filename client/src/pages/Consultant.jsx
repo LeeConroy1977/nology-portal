@@ -30,7 +30,7 @@ const Consultant = () => {
     fetchConsultantById(id);
   }, [id]);
 
-  console.log(selectedConsultants);
+  const isSelected = selectedConsultants.find((c) => c.id === Number(id));
 
   return (
     <div className="flex flex-col items-center justify-start w-screen min-h-full bg-white pb-12 sm:p-8 xl:p-16 xl:py-10">
@@ -69,12 +69,19 @@ const Consultant = () => {
                     Bio
                   </h2>
                 )}
-
-                <button
-                  onClick={() => handleSelectedConsultants(id)}
-                  className="text-[1.2rem] xl:text-[1.4rem] w-[75%] sm:w-[50%] h-[70px] bg-purple-500 text-white font-bold rounded-lg md:ml-auto mt-8 md:mt-20 xl:mt-24 md:mr-12">
-                  Select Consultant
-                </button>
+                {isSelected ? (
+                  <button
+                    // onClick={() => handleSelectedConsultants(id)}
+                    className="text-[1.2rem] xl:text-[1.4rem] w-[75%] sm:w-[50%] h-[70px] border-2 border-purple-500 bg-white  text-purple-500 font-bold rounded-lg md:ml-auto mt-8 md:mt-20 xl:mt-24 md:mr-12">
+                    Selected
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleSelectedConsultants(id)}
+                    className="text-[1.2rem] xl:text-[1.4rem] w-[75%] sm:w-[50%] h-[70px] bg-purple-500 text-white font-bold rounded-lg md:ml-auto mt-8 md:mt-20 xl:mt-24 md:mr-12">
+                    Select Consultant
+                  </button>
+                )}
               </div>
             </div>
           </div>

@@ -45,8 +45,7 @@ public class UserController {
         return userService.fetchUserByIdWithSelectedConsultants(id);
     }
 
-    @PostMapping
-    @RequestMapping("/{id}/view-selections")
+    @PostMapping("/{id}/view-selections")
     public ResponseEntity<String> createPlacementListForUser(@PathVariable Long id,
                                                              @RequestBody CreatePlacementRequest newPlacementRequest) {
         placementService.createPlacementListForUser(id, newPlacementRequest);

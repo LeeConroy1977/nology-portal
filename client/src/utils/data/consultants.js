@@ -11,6 +11,7 @@ export const consultantsData = [
       "Working with Alex was a fantastic experience from start to finish. He quickly understood our business requirements, proposed scalable technical solutions, and delivered high-quality code ahead of schedule. His communication was clear, professional, and proactive throughout the project, and he consistently went above and beyond to ensure everything was implemented correctly. I would highly recommend him to any team looking for a reliable and highly skilled consultant.",
     techStack: "React, Spring Boot, AWS, PostgreSQL",
     phoneNumber: "07700 900001",
+
     projects: [
       {
         id: 1,

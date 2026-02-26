@@ -15,7 +15,7 @@ const HamburgerList = ({ handleClick }) => {
   };
 
   return (
-    <div className="h-screen w-screen bg-white p-8 sm:p-16 absolute ">
+    <div className="h-screen w-screen bg-white p-8 sm:p-16 absolute z-10 ">
       <ul className="flex gap-10 cursor-pointer lex flex-col text-[#2A2D43] text-[1.3rem]  font-semibold">
         {user && user.isAdmin && (
           <>

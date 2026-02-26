@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API = "hhhtps:";
+const API = "https://nology-portal-production.up.railway.app/api/v1";
 
 export const getAllConsultants = async () => {
   try {
-    const response = await axios.get("");
+    const response = await axios.get(`${API}/consultants`);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
