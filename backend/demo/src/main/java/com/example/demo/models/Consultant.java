@@ -20,7 +20,7 @@ public class Consultant {
     private String techStack;
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "consultant")
+    @OneToMany(mappedBy = "consultant", cascade = CascadeType.REMOVE)
     private List<Project> projects;
 
     @ManyToOne

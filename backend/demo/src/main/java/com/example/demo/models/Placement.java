@@ -14,7 +14,7 @@ public class Placement {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "placement")
+    @OneToMany(mappedBy = "placement", cascade = CascadeType.REMOVE)
     private List<Consultant> consultants;
 
     public Long getId() {
