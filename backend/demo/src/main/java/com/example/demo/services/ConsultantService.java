@@ -21,7 +21,7 @@ public class ConsultantService {
     }
 
     public List<ConsultantResponse> fetchAllConsultants() {
-        return consultantRepo.findAllByOrderByNameAsc().stream().map(this::mapToResponse).toList();
+        return consultantRepo.findAllByOrderByNameAsc().stream().map(this::mapToConsultantResponse).toList();
     }
 
     public ConsultantResponse fetchConsultantByIdWithProjects(Long id) {
@@ -30,7 +30,7 @@ public class ConsultantService {
                 "Consultant with ID: %d, was not found", id))
         );
 
-        return mapToResponse(consultant);
+        return mapToConsultantResponse(consultant);
     }
 
     public Consultant createNewConsultant(CreateConsultantRequest newConsultant) {
@@ -58,7 +58,7 @@ public class ConsultantService {
         consultantRepo.deleteById(id);
     }
 
-    private ConsultantResponse mapToResponse(Consultant consultant) {
+    private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
         List<ProjectResponse> projects = consultant.getProjects().stream().map(this::mapProjectToResponse).toList();
         return new ConsultantResponse(
                 consultant.getId(),
@@ -68,6 +68,9 @@ public class ConsultantService {
                 consultant.getImageUrl(),
                 consultant.getGithubLink(),
                 consultant.getPhoneNumber(),
+                consultant.getBio(),
+                consultant.getReview(),
+                consultant.getTechStack(),
                 projects
                 );
     }

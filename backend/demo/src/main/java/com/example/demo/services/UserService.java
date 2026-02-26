@@ -2,9 +2,11 @@ package com.example.demo.services;
 
 import com.example.demo.DTOs.ConsultantResponse;
 import com.example.demo.DTOs.CreateUserRequest;
+import com.example.demo.DTOs.ProjectResponse;
 import com.example.demo.DTOs.UserResponse;
 import com.example.demo.models.Consultant;
 import com.example.demo.models.Placement;
+import com.example.demo.models.Project;
 import com.example.demo.models.User;
 import com.example.demo.repositories.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -85,13 +87,28 @@ public class UserService {
     }
 
     private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
+        List<ProjectResponse> projects = consultant.getProjects().stream().map(this::mapProjectToResponse).toList();
         return new ConsultantResponse(
+                consultant.getId(),
                 consultant.getName(),
                 consultant.getLocation(),
                 consultant.getEmail(),
                 consultant.getImageUrl(),
                 consultant.getGithubLink(),
-                consultant.getPhoneNumber()
+                consultant.getPhoneNumber(),
+                consultant.getBio(),
+                consultant.getReview(),
+                consultant.getTechStack(),
+                projects
+        );
+    }
+
+    private ProjectResponse mapProjectToResponse(Project project) {
+        return new ProjectResponse(
+                project.getImageUrl(),
+                project.getProjectName(),
+                project.getDescription(),
+                project.getGithubLink()
         );
     }
 
