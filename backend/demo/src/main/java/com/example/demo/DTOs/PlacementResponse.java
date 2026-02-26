@@ -20,4 +20,8 @@ public class PlacementResponse {
         this.email = email;
         this.comments = comments;
     }
+
+    public PlacementResponse(Long id2, List<ConsultantResponse> list) {
+        // TODO Auto-generated constructor stub
+    }
 }

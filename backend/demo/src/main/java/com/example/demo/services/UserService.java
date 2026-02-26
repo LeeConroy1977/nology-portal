@@ -83,20 +83,6 @@ public class UserService {
                 user.getComments());
     }
 
-    private UserResponse mapToUserResponse(User user) {
-        List<PlacementResponse> listOfPlacements = user.getPlacements().stream().map(placement -> {
-
-            List<Consultant> consultants = placement.getConsultants();
-            if (consultants == null) {
-                consultants = List.of();
-            }
-            return new PlacementResponse(placement.getId(),
-                    consultants.stream().map(this::mapToConsultantResponse).toList());
-        }).toList();
-
-        return new UserResponse(user.getCompanyName(), listOfPlacements);
-    };
-
     private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
         var projectList = consultant.getProjects();
         List<ProjectResponse> projects = projectList == null
@@ -137,4 +123,5 @@ public class UserService {
                 .toList();
         return new UserResponse(user.getCompanyName(), placementResponses);
     }
+
 }
