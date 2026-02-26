@@ -26,7 +26,7 @@ public class Consultant {
 
     @ManyToOne
     @JoinColumn(name = "placement_id")
-    @JsonBackReference
+    // @JsonBackReference
     private Placement placement;
 
     public Long getId() {

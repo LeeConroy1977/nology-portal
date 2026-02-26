@@ -13,11 +13,10 @@ public class Placement {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-
     private User user;
 
     @OneToMany(mappedBy = "placement", cascade = CascadeType.REMOVE)
-    @JsonManagedReference
+    // @JsonManagedReference
     private List<Consultant> consultants;
 
     public Long getId() {
