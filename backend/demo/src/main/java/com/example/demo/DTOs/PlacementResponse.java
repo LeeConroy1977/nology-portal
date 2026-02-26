@@ -27,6 +27,10 @@ public class PlacementResponse {
         this.consultants = consultants;
     }
 
+    public PlacementResponse(Long id2, String companyName2, int size) {
+        // TODO Auto-generated constructor stub
+    }
+
     public String getCompanyName() {
         return companyName;
     }

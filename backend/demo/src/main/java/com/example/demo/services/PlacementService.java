@@ -50,11 +50,17 @@ public class PlacementService {
         placementRepo.save(placement);
     }
 
-    public List<PlacementResponse> fetchAllPlacements() {
-        return placementRepo.findAll().stream().map(this::mapToPlacementResponse).toList();
+    public PlacementResponse fetchPlacementById(Long id) {
+        Placement placement = placementRepo.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format(
+                "Placement with ID: %d, was not found", id)));
+        return mapToPlacementResponse(placement);
     }
 
-    private PlacementResponse mapToPlacementResponse(Placement placement) {
+    public List<PlacementResponse> fetchAllPlacements() {
+        return placementRepo.findAll().stream().map(this::mapToAllPlacementResponse).toList();
+    }
+
+    private PlacementResponse mapToAllPlacementResponse(Placement placement) {
         return new PlacementResponse(
                 placement.getId(),
                 placement.getUser().getCompanyName(),
@@ -62,4 +68,28 @@ public class PlacementService {
 
     }
 
+    private PlacementResponse mapToPlacementResponse(Placement placement) {
+        return new PlacementResponse(
+                placement.getId(),
+                placement.getUser().getCompanyName(),
+                placement.getUser().getContactName(),
+                placement.getUser().getPhoneNumber(),
+                placement.getUser().getEmail(),
+                placement.getUser().getComments(),
+                placement.getConsultants().stream().map(this::mapToConsultantResponse).toList());
+    }
+
+    private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
+        return new ConsultantResponse(
+                consultant.getId(),
+                consultant.getName(),
+                consultant.getLocation(),
+                consultant.getEmail(),
+                consultant.getImageUrl(),
+                consultant.getGithubLink(),
+                consultant.getPhoneNumber(),
+                consultant.getBio(),
+                consultant.getReview(),
+                consultant.getTechStack());
+    }
 }

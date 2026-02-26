@@ -15,19 +15,41 @@ public class ConsultantResponse {
     private final String techStack;
     private final List<ProjectResponse> projects;
 
+    public ConsultantResponse(Long id,
+            String name,
+            String location,
+            String email,
+            String imageUrl,
+            String githubLink,
+            String phoneNumber,
+            String bio,
+            String review,
+            String techStack) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.email = email;
+        this.imageUrl = imageUrl;
+        this.githubLink = githubLink;
+        this.phoneNumber = phoneNumber;
+        this.bio = bio;
+        this.review = review;
+        this.techStack = techStack;
+        this.projects = List.of();
+    }
+
     // Will be used for "api/v1/consultants" (GET)
     public ConsultantResponse(Long id,
-                              String name,
-                              String location,
-                              String email,
-                              String imageUrl,
-                              String githubLink,
-                              String phoneNumber,
-                              String bio,
-                              String review,
-                              String techStack,
-                              List<ProjectResponse> projects
-    ) {
+            String name,
+            String location,
+            String email,
+            String imageUrl,
+            String githubLink,
+            String phoneNumber,
+            String bio,
+            String review,
+            String techStack,
+            List<ProjectResponse> projects) {
         this.id = id;
         this.name = name;
         this.location = location;

@@ -6,6 +6,7 @@ import com.example.demo.services.PlacementService;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,5 +36,10 @@ public class PlacementController {
     @GetMapping
     public List<PlacementResponse> getAllPlacements() {
         return placementService.fetchAllPlacements();
+    }
+
+    @GetMapping("/{id}")
+    public PlacementResponse getPlacementById(@PathVariable Long id) {
+        return placementService.fetchPlacementById(id);
     }
 }
