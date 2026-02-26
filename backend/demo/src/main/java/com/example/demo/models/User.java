@@ -20,7 +20,6 @@ public class User {
     // May add @JsonIgnore
     private List<Placement> placements;
 
-
     public Long getId() {
         return id;
     }

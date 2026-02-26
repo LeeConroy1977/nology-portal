@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.DTOs.ConsultantResponse;
 import com.example.demo.DTOs.CreateUserRequest;
+import com.example.demo.DTOs.PlacementResponse;
 import com.example.demo.DTOs.ProjectResponse;
 import com.example.demo.DTOs.UserResponse;
 import com.example.demo.models.Consultant;
@@ -87,7 +88,10 @@ public class UserService {
     }
 
     private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
-        List<ProjectResponse> projects = consultant.getProjects().stream().map(this::mapProjectToResponse).toList();
+        var projectList = consultant.getProjects();
+        List<ProjectResponse> projects = projectList == null
+                ? List.of()
+                : projectList.stream().map(this::mapProjectToResponse).toList();
         return new ConsultantResponse(
                 consultant.getId(),
                 consultant.getName(),
@@ -113,9 +117,15 @@ public class UserService {
     }
 
     private UserResponse mapToUserResponse(User user) {
-        return new UserResponse(
-                user.getCompanyName(),
-                user.getPlacements()
-        );
+        List<PlacementResponse> placementResponses = user.getPlacements().stream()
+                .map(placement -> {
+                    List<Consultant> consultants = placement.getConsultants();
+                    if (consultants == null) consultants = List.of();
+                    return new PlacementResponse(
+                            placement.getId(),
+                            consultants.stream().map(this::mapToConsultantResponse).toList());
+                })
+                .toList();
+        return new UserResponse(user.getCompanyName(), placementResponses);
     }
 }

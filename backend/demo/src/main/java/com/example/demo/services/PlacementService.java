@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-
 import com.example.demo.DTOs.CreatePlacementRequest;
+import com.example.demo.DTOs.PlacementResponse;
 import com.example.demo.models.Consultant;
 import com.example.demo.models.Placement;
 import com.example.demo.models.User;
@@ -21,28 +21,25 @@ public class PlacementService {
     private final ConsultantRepository consultantRepo;
 
     public PlacementService(PlacementRepository placementRepo,
-                            UserRepository userRepo,
-                            ConsultantRepository consultantRepo) {
+            UserRepository userRepo,
+            ConsultantRepository consultantRepo) {
         this.placementRepo = placementRepo;
         this.userRepo = userRepo;
         this.consultantRepo = consultantRepo;
     }
 
     public void createPlacementListForUser(Long id,
-                                           CreatePlacementRequest newPlacementRequest) {
+            CreatePlacementRequest newPlacementRequest) {
 
-        User user = userRepo.findById(id).orElseThrow(() ->
-                new EntityNotFoundException(String.format(
-                        "User with ID: %d, was not found", id))
-        );
+        User user = userRepo.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format(
+                "User with ID: %d, was not found", id)));
 
         List<Consultant> listOfConsultants = new ArrayList<>();
 
-        for (Long consultantId: newPlacementRequest) {
-            Consultant consultant = consultantRepo.findById(consultantId).orElseThrow(() ->
-                    new EntityNotFoundException(String.format(
-                            "Consultant with ID: %d, was not found", consultantId))
-            );
+        for (Long consultantId : newPlacementRequest) {
+            Consultant consultant = consultantRepo.findById(consultantId)
+                    .orElseThrow(() -> new EntityNotFoundException(String.format(
+                            "Consultant with ID: %d, was not found", consultantId)));
             listOfConsultants.add(consultant);
         }
         Placement placement = new Placement();
@@ -50,5 +47,18 @@ public class PlacementService {
         placement.setConsultants(listOfConsultants);
         placementRepo.save(placement);
     }
-}
 
+    public List<PlacementResponse> fetchAllPlacements() {
+        return placementRepo.findAll().stream().map(this::mapToPlacementResponse).toList();
+    }
+
+    private PlacementResponse mapToPlacementResponse(Placement placement) {
+        return new PlacementResponse(
+                placement.getId(),
+                placement.getUser().getCompanyName(),
+                placement.getUser().getContactName(),
+                placement.getUser().getPhoneNumber(),
+                placement.getUser().getEmail(),
+                placement.getUser().getComments());
+    }
+}
