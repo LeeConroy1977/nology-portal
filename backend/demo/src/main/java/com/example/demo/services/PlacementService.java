@@ -1,7 +1,9 @@
 package com.example.demo.services;
 
+import com.example.demo.DTOs.ConsultantResponse;
 import com.example.demo.DTOs.CreatePlacementRequest;
 import com.example.demo.DTOs.PlacementResponse;
+import com.example.demo.DTOs.ProjectResponse;
 import com.example.demo.models.Consultant;
 import com.example.demo.models.Placement;
 import com.example.demo.models.User;
@@ -56,9 +58,8 @@ public class PlacementService {
         return new PlacementResponse(
                 placement.getId(),
                 placement.getUser().getCompanyName(),
-                placement.getUser().getContactName(),
-                placement.getUser().getPhoneNumber(),
-                placement.getUser().getEmail(),
-                placement.getUser().getComments());
+                placement.getConsultants().size());
+
     }
+
 }

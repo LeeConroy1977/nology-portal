@@ -12,13 +12,14 @@ public class PlacementResponse {
     private String comments;
 
     public PlacementResponse(Long id, String companyName, String contactName, String phoneNumber, String email,
-            String comments) {
+            String comments, List<ConsultantResponse> consultants) {
         this.id = id;
         this.companyName = companyName;
         this.contactName = contactName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.comments = comments;
+        this.consultants = consultants;
     }
 
     public PlacementResponse(Long id, List<ConsultantResponse> consultants) {
