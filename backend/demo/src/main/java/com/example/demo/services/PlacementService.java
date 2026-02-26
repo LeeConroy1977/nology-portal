@@ -69,8 +69,7 @@ public class PlacementService {
         return new PlacementSummaryResponse(
                 placement.getId(),
                 placement.getUser().getCompanyName(),
-                placement.getConsultants().size());
-
+                placement.getConsultants().stream().map(this::mapToConsultantResponseSummary).toList());
     }
 
     private PlacementResponse mapToPlacementResponse(Placement placement) {
@@ -96,5 +95,11 @@ public class PlacementService {
                 consultant.getBio(),
                 consultant.getReview(),
                 consultant.getTechStack());
+    }
+
+    private ConsultantResponse mapToConsultantResponseSummary(Consultant consultant) {
+        return new ConsultantResponse(
+                consultant.getId(),
+                consultant.getName());
     }
 }

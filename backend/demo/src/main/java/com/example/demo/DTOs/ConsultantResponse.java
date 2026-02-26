@@ -15,6 +15,20 @@ public class ConsultantResponse {
     private final String techStack;
     private final List<ProjectResponse> projects;
 
+    public ConsultantResponse(Long id, String name) {
+        this.id = id;
+        this.name = name;
+        this.location = "";
+        this.email = "";
+        this.imageUrl = "";
+        this.githubLink = "";
+        this.phoneNumber = "";
+        this.bio = "";
+        this.review = "";
+        this.techStack = "";
+        this.projects = List.of();
+    }
+
     public ConsultantResponse(Long id,
             String name,
             String location,
