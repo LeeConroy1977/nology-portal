@@ -16,6 +16,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -53,23 +54,29 @@ public class PlacementService {
     }
 
     public PlacementResponse fetchPlacementById(Long id) {
-        Placement placement = placementRepo.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format(
-                "Placement with ID: %d, was not found", id)));
+        Placement placement = placementRepo.findByIdWithConsultantsAndUser(id)
+                .orElseThrow(() -> new EntityNotFoundException(String.format(
+                        "Placement with ID: %d, was not found", id)));
         return mapToPlacementResponse(placement);
     }
 
     public GetAllPlacementsResponse fetchAllPlacements() {
-        List<PlacementSummaryResponse> pList = placementRepo.findAll().stream().map(this::mapToAllPlacementResponse)
+        List<PlacementSummaryResponse> pList = placementRepo.findAllWithConsultantsAndUser().stream()
+                .map(this::mapToAllPlacementResponse)
                 .toList();
 
         return new GetAllPlacementsResponse(pList, pList.size());
+    }
+
+    private List<Consultant> consultantsOf(Placement placement) {
+        return placement.getConsultants() != null ? placement.getConsultants() : Collections.emptyList();
     }
 
     private PlacementSummaryResponse mapToAllPlacementResponse(Placement placement) {
         return new PlacementSummaryResponse(
                 placement.getId(),
                 placement.getUser().getCompanyName(),
-                placement.getConsultants().stream().map(this::mapToConsultantResponseSummary).toList());
+                consultantsOf(placement).stream().map(this::mapToConsultantResponseSummary).toList());
     }
 
     private PlacementResponse mapToPlacementResponse(Placement placement) {
@@ -80,7 +87,7 @@ public class PlacementService {
                 placement.getUser().getPhoneNumber(),
                 placement.getUser().getEmail(),
                 placement.getUser().getComments(),
-                placement.getConsultants().stream().map(this::mapToConsultantResponse).toList());
+                consultantsOf(placement).stream().map(this::mapToConsultantResponse).toList());
     }
 
     private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
