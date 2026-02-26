@@ -2,7 +2,9 @@ package com.example.demo.services;
 
 import com.example.demo.DTOs.ConsultantResponse;
 import com.example.demo.DTOs.CreatePlacementRequest;
+import com.example.demo.DTOs.GetAllPlacementsResponse;
 import com.example.demo.DTOs.PlacementResponse;
+import com.example.demo.DTOs.PlacementSummaryResponse;
 import com.example.demo.DTOs.ProjectResponse;
 import com.example.demo.models.Consultant;
 import com.example.demo.models.Placement;
@@ -56,12 +58,15 @@ public class PlacementService {
         return mapToPlacementResponse(placement);
     }
 
-    public List<PlacementResponse> fetchAllPlacements() {
-        return placementRepo.findAll().stream().map(this::mapToAllPlacementResponse).toList();
+    public GetAllPlacementsResponse fetchAllPlacements() {
+        List<PlacementSummaryResponse> pList = placementRepo.findAll().stream().map(this::mapToAllPlacementResponse)
+                .toList();
+
+        return new GetAllPlacementsResponse(pList, pList.size());
     }
 
-    private PlacementResponse mapToAllPlacementResponse(Placement placement) {
-        return new PlacementResponse(
+    private PlacementSummaryResponse mapToAllPlacementResponse(Placement placement) {
+        return new PlacementSummaryResponse(
                 placement.getId(),
                 placement.getUser().getCompanyName(),
                 placement.getConsultants().size());

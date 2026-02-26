@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTOs.GetAllPlacementsResponse;
 import com.example.demo.DTOs.PlacementResponse;
 import com.example.demo.services.PlacementService;
 
@@ -34,7 +35,7 @@ public class PlacementController {
     // }
 
     @GetMapping
-    public List<PlacementResponse> getAllPlacements() {
+    public GetAllPlacementsResponse getAllPlacements() {
         return placementService.fetchAllPlacements();
     }
 
