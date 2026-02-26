@@ -47,14 +47,13 @@ public class UserService {
     }
 
     public UserResponse fetchUserById(Long id) {
-        User user = userRepo.findById(id).orElseThrow(() ->
-                new EntityNotFoundException(String.format(
-                        "User with ID: %d, was not found", id))
-        );
+        User user = userRepo.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format(
+                "User with ID: %d, was not found", id)));
 
         List<List<ConsultantResponse>> listOfConsultants = new ArrayList<>();
-        // Will only run once because current employer can only make one list of placements
-        for (Placement placement: user.getPlacements()) {
+        // Will only run once because current employer can only make one list of
+        // placements
+        for (Placement placement : user.getPlacements()) {
             List<ConsultantResponse> listOfConsultantResponse = placement.getConsultants().stream().map(
                     this::mapToConsultantResponse).toList();
             listOfConsultants.add(listOfConsultantResponse);
@@ -63,12 +62,10 @@ public class UserService {
     }
 
     public UserResponse fetchUserByIdWithSelectedConsultants(Long id) {
-        User user = userRepo.findById(id).orElseThrow(() ->
-                new EntityNotFoundException(String.format(
-                        "User with ID: %d, was not found", id))
-        );
+        User user = userRepo.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format(
+                "User with ID: %d, was not found", id)));
         List<List<ConsultantResponse>> listOfConsultants = new ArrayList<>();
-        for (Placement placement: user.getPlacements()) {
+        for (Placement placement : user.getPlacements()) {
             List<ConsultantResponse> listOfConsultantResponse = placement.getConsultants().stream().map(
                     this::mapToConsultantResponse).toList();
             listOfConsultants.add(listOfConsultantResponse);
@@ -83,9 +80,22 @@ public class UserService {
                 user.getContactName(),
                 user.getPhoneNumber(),
                 user.getEmail(),
-                user.getComments()
-        );
+                user.getComments());
     }
+
+    private UserResponse mapToUserResponse(User user) {
+        List<PlacementResponse> listOfPlacements = user.getPlacements().stream().map(placement -> {
+
+            List<Consultant> consultants = placement.getConsultants();
+            if (consultants == null) {
+                consultants = List.of();
+            }
+            return new PlacementResponse(placement.getId(),
+                    consultants.stream().map(this::mapToConsultantResponse).toList());
+        }).toList();
+
+        return new UserResponse(user.getCompanyName(), listOfPlacements);
+    };
 
     private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
         var projectList = consultant.getProjects();
@@ -103,8 +113,7 @@ public class UserService {
                 consultant.getBio(),
                 consultant.getReview(),
                 consultant.getTechStack(),
-                projects
-        );
+                projects);
     }
 
     private ProjectResponse mapProjectToResponse(Project project) {
@@ -112,15 +121,15 @@ public class UserService {
                 project.getImageUrl(),
                 project.getProjectName(),
                 project.getDescription(),
-                project.getGithubLink()
-        );
+                project.getGithubLink());
     }
 
     private UserResponse mapToUserResponse(User user) {
         List<PlacementResponse> placementResponses = user.getPlacements().stream()
                 .map(placement -> {
                     List<Consultant> consultants = placement.getConsultants();
-                    if (consultants == null) consultants = List.of();
+                    if (consultants == null)
+                        consultants = List.of();
                     return new PlacementResponse(
                             placement.getId(),
                             consultants.stream().map(this::mapToConsultantResponse).toList());
