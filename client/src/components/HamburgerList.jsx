@@ -18,9 +18,14 @@ const HamburgerList = ({ handleClick }) => {
     <div className="h-screen w-screen bg-white p-8 sm:p-16 absolute ">
       <ul className="flex gap-10 cursor-pointer lex flex-col text-[#2A2D43] text-[1.3rem]  font-semibold">
         {user && user.isAdmin && (
-          <li onClick={handleClick}>
-            <Link to="/placements">View placements</Link>
-          </li>
+          <>
+            <li onClick={handleClick}>
+              <Link to="/placements">View placements</Link>
+            </li>
+            <li onClick={handleClick}>
+              <Link to="/consultants">Consultants</Link>
+            </li>
+          </>
         )}
         {user && !user.isAdmin && isFormData && (
           <>

@@ -4,11 +4,13 @@ import { useConsultant } from "../contexts/ConsultantContext";
 import ProjectCard from "../components/ProjectCard";
 import { useWindowWidth } from "../contexts/WindowWidthContext";
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import { useConsultants } from "../contexts/ConsultantsContext";
 
 const Consultant = () => {
   const { id } = useParams();
   const width = useWindowWidth();
   const { consultant, fetchConsultantById } = useConsultant();
+  const { selectedConsultants, handleSelectedConsultants } = useConsultants();
 
   const {
     name,
@@ -26,9 +28,9 @@ const Consultant = () => {
 
   useEffect(() => {
     fetchConsultantById(id);
-  }, []);
+  }, [id]);
 
-  console.log(consultant);
+  console.log(selectedConsultants);
 
   return (
     <div className="flex flex-col items-center justify-start w-screen min-h-full bg-white pb-12 sm:p-8 xl:p-16 xl:py-10">
@@ -68,7 +70,9 @@ const Consultant = () => {
                   </h2>
                 )}
 
-                <button className="text-[1.2rem] xl:text-[1.4rem] w-[75%] sm:w-[50%] h-[70px] bg-purple-500 text-white font-bold rounded-lg md:ml-auto mt-8 md:mt-20 xl:mt-24 md:mr-12">
+                <button
+                  onClick={() => handleSelectedConsultants(id)}
+                  className="text-[1.2rem] xl:text-[1.4rem] w-[75%] sm:w-[50%] h-[70px] bg-purple-500 text-white font-bold rounded-lg md:ml-auto mt-8 md:mt-20 xl:mt-24 md:mr-12">
                   Select Consultant
                 </button>
               </div>

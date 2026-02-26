@@ -8,11 +8,10 @@ export function ConsultantProvider({ children }) {
   const [consultant, setConsultant] = useState({});
 
   const fetchConsultantById = async (id) => {
-    console.log(consultantsData[0]);
-    setConsultant(consultantsData[0]);
+    const response = consultantsData.find((con) => con.id === Number(id));
+    setConsultant(response);
     try {
-      const response = await getConsultantById(id);
-
+      // const response = await getConsultantById(id);
       // setConsultant(response.data);
     } catch (error) {}
   };

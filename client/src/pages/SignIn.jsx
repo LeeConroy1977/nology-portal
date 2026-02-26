@@ -32,7 +32,7 @@ const SignIn = () => {
         onClick={() => handleClick(visitorData[0].id)}
         className="flexCenter w-[90%] sm:w-[70%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[32%] h-[30%] bg-white border-4 border-purple-500 mt-10 sm:mt-16 rounded-lg p-6 sm:p-12 cursor-pointer">
         <CgProfile className="text-[6rem] sm:text-[8rem] md:text-[7rem] mr-auto text-gray-800" />
-        <p className="my-6 font-bold text-[1.8rem] sm:text-[2.2rem] md:text-[2rem] text-purple-500 mr-8">
+        <p className="my-6 font-bold text-[1.6rem] sm:text-[2.2rem] md:text-[1.8rem] text-purple-500 mr-8">
           User
         </p>
       </div>
@@ -40,7 +40,7 @@ const SignIn = () => {
         onClick={() => handleClick(visitorData[1].id)}
         className="flexCenter w-[90%] h-[30%] sm:w-[70%] md:w-[50%] lg:w-[45%] xl:w-[40%] 2xl:w-[32%]  bg-white border-4 border-purple-500 mt-12 sm:mt-16 rounded-lg p-6 sm:p-12 cursor-pointer">
         <CgProfile className="text-[6rem] sm:text-[8rem] md:text-[7rem] mr-auto text-gray-800" />
-        <p className="my-6 font-bold text-[1.8rem] sm:text-[2.2rem] md:text-[2rem] text-purple-500 mr-8">
+        <p className="my-6 font-bold text-[1.6rem] sm:text-[2.2rem] md:text-[1.8rem] text-purple-500 mr-8">
           Admin
         </p>
       </div>

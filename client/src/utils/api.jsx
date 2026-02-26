@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "server";
+const API = "hhhtps:";
 
 export const getAllConsultants = async () => {
   try {

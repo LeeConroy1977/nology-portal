@@ -26,7 +26,6 @@ const NavBar = ({ setIsOpen }) => {
         <p className="text-white font-semibold text-[1.2rem] ">_nology</p>
       </div>
       {user &&
-        isFormData &&
         (width <= 768 ? (
           <GiHamburgerMenu
             className="size-[1.8rem] text-[#2A2D43]"
@@ -35,15 +34,26 @@ const NavBar = ({ setIsOpen }) => {
         ) : (
           <ul className="flex gap-12 xl:gap-16 cursor-pointer font-semibold xl:text-[1.1rem] 2xl:text-[1.2rem] ">
             {user && user.isAdmin && (
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "text-purple-500" : "text-[#2A2D43]"
-                  }
-                  to="/placements">
-                  View placements
-                </NavLink>
-              </li>
+              <>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "text-purple-500" : "text-[#2A2D43]"
+                    }
+                    to="/placements">
+                    View placements
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "text-purple-500" : "text-[#2A2D43]"
+                    }
+                    to="/consultants">
+                    Consultants
+                  </NavLink>
+                </li>
+              </>
             )}
 
             {user && !user.isAdmin && isFormData && (

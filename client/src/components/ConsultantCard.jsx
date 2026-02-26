@@ -8,14 +8,14 @@ const ConsultantCard = ({ consultant, handleClick }) => {
     <div
       onClick={() => handleClick(id)}
       className="flex flex-col justify-start items-center 
-                    w-[80%] sm:w-[300px] md:w-[22%] lg:w-[20%] 2xl:w-[15%]
-                    h-[500px] sm:h-[480px] md:h-[360px] lg:h-[390px] xl:h-[500px] 2xl:h-[460px]
+                    w-[100%] sm:w-[300px] md:w-[22%] lg:w-[20%] 2xl:w-[20%]
+                    h-[500px] sm:h-[480px] md:h-[360px] lg:h-[390px] xl:h-[460px] 2xl:h-[450px]
                     mt-1 p-6 bg-white rounded-lg cursor-pointer shadow-xl">
       {" "}
       <img
         src={imageUrl}
         alt=""
-        className="rounded-full border-8 border-purple-500 md:border-[5px] w-[84%] "
+        className="rounded-full border-8 border-purple-500 md:border-[5px] w-[72%] sm:w-[76%] md:w-[80%] xl:w-[73%] 2xl:w-[68%] "
       />
       <div className="flex flex-col mt-6 md:mt-4 w-full h-full p-2">
         <p className="text-[1.4rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.2rem] font-bold text-[#2A2D43]">

@@ -52,12 +52,12 @@ const EmployerForm = () => {
 
   return (
     <div className="w-full h-screen flex flex-col justify-start items-center bg-[#F2F2F2]">
-      <h1 className="text-[#2A2D43] font-bold text-[1.3rem] xl:text-[1.6rem] mt-6  mr-auto ml-8 sm:ml-[7rem] md:ml-[16rem] lg:ml-[24rem] xl:ml-[10rem] 2xl:ml-[41rem]">
+      <h1 className="text-[#2A2D43] font-bold text-[1.3rem] xl:text-[1.6rem] mt-6 mx-auto ">
         Employer details
       </h1>
       <form
         action="submit"
-        className="flex flex-col justify-start items-center w-[88%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[36%] 2xl:w-[30%] h-[76%] sm:h-[80%] md:h-[74%] lg:h-[78%] bg-white mt-3 sm:mt-6 xl:mt-10 2xl:mt-8 p-6 sm:p-8 gap-2 rounded-lg">
+        className="flex flex-col justify-start items-center w-[88%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[36%] 2xl:w-[30%] h-[76%] sm:h-[80%] md:h-[74%] lg:h-[78%] bg-white mt-3 sm:mt-6 xl:mt-8 2xl:mt-8 p-6 sm:p-8 gap-2 rounded-lg">
         <div className="mt-1 sm:mt-6 md:mt-1 w-full">
           <label
             htmlFor=""

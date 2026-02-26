@@ -71,6 +71,53 @@ export const consultantsData = [
       "Sofia completely transformed our frontend application and significantly improved both usability and performance. Her attention to detail is exceptional, and she consistently delivered pixel-perfect components that matched our design requirements. She was also very collaborative, receptive to feedback, and highly efficient in meeting tight deadlines.",
     techStack: "React, Tailwind, TypeScript, Next.js",
     phoneNumber: "07700 900002",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 3,
@@ -84,6 +131,53 @@ export const consultantsData = [
       "James demonstrated outstanding technical expertise throughout our engagement. He refactored our legacy backend into a clean microservices architecture and significantly improved system performance and reliability. His documentation was thorough, and he made sure our internal team fully understood the new system before project completion.",
     techStack: "Java, Spring Boot, MySQL, Docker",
     phoneNumber: "07700 900003",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 4,
@@ -97,6 +191,53 @@ export const consultantsData = [
       "Emily played a crucial role in modernising our deployment pipeline and cloud infrastructure. She introduced automation that reduced our deployment time by more than 60% and improved system stability across environments. Her professionalism, technical depth, and ability to explain complex DevOps concepts made her an invaluable asset to our team.",
     techStack: "Docker, Kubernetes, AWS, Jenkins",
     phoneNumber: "07700 900004",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 5,
@@ -110,6 +251,53 @@ export const consultantsData = [
       "Daniel was incredibly efficient and solution-oriented throughout the entire project. He quickly identified integration bottlenecks and implemented clean, scalable APIs that drastically improved our system communication. His technical knowledge and ability to adapt to changing requirements made the collaboration smooth and successful.",
     techStack: "Node.js, Express, MongoDB, Redis",
     phoneNumber: "07700 900005",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 6,
@@ -123,6 +311,53 @@ export const consultantsData = [
       "Aisha exceeded our expectations in every aspect of the project. She not only delivered a robust cloud architecture but also provided valuable strategic guidance on scalability and security. Her communication was excellent, and she consistently demonstrated a deep understanding of both technical and business requirements.",
     techStack: "AWS, Terraform, Python, FastAPI",
     phoneNumber: "07700 900006",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 7,
@@ -136,6 +371,53 @@ export const consultantsData = [
       "Liam’s expertise in secure system design was exactly what our fintech project needed. He implemented robust authentication and security mechanisms while maintaining excellent performance. His professionalism, reliability, and deep technical insight made him a trusted partner throughout the development process.",
     techStack: "Java, Spring Security, PostgreSQL",
     phoneNumber: "07700 900007",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 8,
@@ -149,6 +431,53 @@ export const consultantsData = [
       "Chloe significantly improved the usability and visual design of our application. Her design thinking approach and frontend expertise resulted in a much more intuitive user experience. She was highly collaborative, open to feedback, and consistently delivered high-quality work.",
     techStack: "Figma, React, Tailwind, CSS",
     phoneNumber: "07700 900008",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 9,
@@ -162,6 +491,53 @@ export const consultantsData = [
       "Noah brought tremendous value to our data infrastructure project. He designed efficient data pipelines and helped us implement analytics solutions that provided real business insights. His structured approach, clear documentation, and technical expertise made the entire process seamless.",
     techStack: "Python, Django, PostgreSQL, Pandas",
     phoneNumber: "07700 900009",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 10,
@@ -175,6 +551,53 @@ export const consultantsData = [
       "Isabella delivered an exceptional cross-platform application that exceeded our expectations in both performance and design. She was highly organised, communicative, and proactive in suggesting improvements throughout the project lifecycle. Her technical skills and professionalism truly stand out.",
     techStack: "React Native, Flutter, Firebase",
     phoneNumber: "07700 900010",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 11,
@@ -188,6 +611,53 @@ export const consultantsData = [
       "Ethan conducted a thorough security audit of our platform and helped us resolve several critical vulnerabilities. His recommendations were practical, well-documented, and easy to implement. We felt much more confident in our system’s security after working with him.",
     techStack: "Java, Spring Boot, OAuth2, Security",
     phoneNumber: "07700 900011",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
   {
     id: 12,
@@ -201,5 +671,52 @@ export const consultantsData = [
       "Maya was incredibly adaptable and easy to work with throughout our project. She quickly understood our requirements, delivered high-quality features, and communicated clearly at every stage. Her ability to balance speed and code quality makes her an outstanding consultant.",
     techStack: "React, Node.js, MongoDB, Agile",
     phoneNumber: "07700 900012",
+    projects: [
+      {
+        id: 1,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://miro.medium.com/v2/resize:fit:1400/1*AcXhKquY3EXcimSpTICoww.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 2,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://assets.roadmap.sh/guest/github-repo-finder-n2qz4.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 3,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/0/07/Bootstrap-3.1.1-screenshot-dashboard-example.png",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 4,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://cdn.prod.website-files.com/63fc977c14aaea404dce4439/66bb6efe21f3306e5234c386_668bfdf644d39472d8c4db2f_img7.webp",
+        githubLink: "https://github.com/example",
+      },
+      {
+        id: 5,
+        projectName: "AI Resume Analyzer",
+        description:
+          "A web application that analyzes resumes using AI and suggests job matches.",
+        imageUrl:
+          "https://mokkupai.s3.ap-south-1.amazonaws.com/files/assets/blogs/cover-images/463.webp",
+        githubLink: "https://github.com/example",
+      },
+    ],
   },
 ];
