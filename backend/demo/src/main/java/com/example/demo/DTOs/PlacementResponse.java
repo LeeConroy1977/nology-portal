@@ -21,7 +21,36 @@ public class PlacementResponse {
         this.comments = comments;
     }
 
-    public PlacementResponse(Long id2, List<ConsultantResponse> list) {
-        // TODO Auto-generated constructor stub
+    public PlacementResponse(Long id, List<ConsultantResponse> consultants) {
+        this.id = id;
+        this.consultants = consultants;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public List<ConsultantResponse> getConsultants() {
+        return consultants;
     }
 }
