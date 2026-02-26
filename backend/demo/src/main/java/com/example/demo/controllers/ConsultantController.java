@@ -25,8 +25,7 @@ public class ConsultantController {
         return consultantService.fetchAllConsultants();
     }
 
-    @GetMapping
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public ConsultantResponse getConsultantById(@PathVariable Long id) {
         return consultantService.fetchConsultantByIdWithProjects(id);
     }
@@ -36,11 +35,10 @@ public class ConsultantController {
         return consultantService.createNewConsultant(newConsultant);
     }
 
-    @DeleteMapping
-    @RequestMapping("/{consultantId}")
-    public ResponseEntity<String> deleteConsultant(@PathVariable Long consultantId) {
-        consultantService.deleteConsultantById(consultantId);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteConsultant(@PathVariable Long id) {
+        consultantService.deleteConsultantById(id);
         return ResponseEntity.ok(String.format(
-                "Consultant with ID: %d successfully deleted from the database", consultantId));
+                "Consultant with ID: %d successfully deleted from the database", id));
     }
 }
