@@ -13,6 +13,7 @@ public class Placement {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+
     private User user;
 
     @OneToMany(mappedBy = "placement", cascade = CascadeType.REMOVE)

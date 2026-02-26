@@ -1,9 +1,6 @@
 package com.example.demo.services;
 
-import com.example.demo.DTOs.ConsultantResponse;
-import com.example.demo.DTOs.CreateUserRequest;
-import com.example.demo.DTOs.ProjectResponse;
-import com.example.demo.DTOs.UserResponse;
+import com.example.demo.DTOs.*;
 import com.example.demo.models.Consultant;
 import com.example.demo.models.Placement;
 import com.example.demo.models.Project;
@@ -85,6 +82,18 @@ public class UserService {
                 user.getComments()
         );
     }
+    private UserResponse mapToUserResponse(User user) {
+        List<PlacementResponse> listOfPlacements = user.getPlacements().stream().map(placement-> {
+
+            List<Consultant> consultants = placement.getConsultants();
+            if (consultants == null) {
+                consultants = List.of();
+            }
+        return new PlacementResponse(placement.getId(), consultants.stream().map(this::mapToConsultantResponse).toList());
+        }).toList();
+
+         return new UserResponse(user.getCompanyName(), listOfPlacements);
+    };
 
     private ConsultantResponse mapToConsultantResponse(Consultant consultant) {
         List<ProjectResponse> projects = consultant.getProjects().stream().map(this::mapProjectToResponse).toList();
@@ -112,10 +121,10 @@ public class UserService {
         );
     }
 
-    private UserResponse mapToUserResponse(User user) {
-        return new UserResponse(
-                user.getCompanyName(),
-                user.getPlacements()
-        );
-    }
+//    private UserResponse mapToUserResponse(User user) {
+//        return new UserResponse(
+//                user.getCompanyName(),
+//                user.getPlacements()
+//        );
+//    }
 }
