@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/nology.iml" filepath="$PROJECT_DIR$/nology.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/placement-portal.iml" filepath="$PROJECT_DIR$/.idea/placement-portal.iml" />
     </modules>
   </component>
