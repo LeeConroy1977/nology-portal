@@ -43,8 +43,8 @@ const Placements = () => {
         )}
         {placements &&
           arr
-            // .reverse()
-            // .slice(0, 4)
+            .reverse()
+            .slice(0, 4)
             .map((placement) => {
               return (
                 <PlacementCard
