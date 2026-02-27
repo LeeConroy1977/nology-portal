@@ -37,6 +37,7 @@ export function PlacementsProvider({ children }) {
         individualPlacement,
         fetchAllPlacements,
         fetchPlacementsById,
+        setIndividualPlacement,
       }}>
       {" "}
       {children}

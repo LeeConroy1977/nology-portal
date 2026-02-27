@@ -19,9 +19,10 @@ const ViewSelections = () => {
 
   const hasConsultants = selectedConsultants.length > 0;
 
+  const consultantIds = selectedConsultants.map((c) => c.id);
+
   const handleSubmit = () => {
-    if (selectedConsultants.length > 0)
-      postPlacementList(id, selectedConsultants);
+    if (selectedConsultants.length > 0) postPlacementList(id, consultantIds);
     setSelectedConsultants([]);
     handleClick();
   };

@@ -1,13 +1,14 @@
 import { createContext, useState, useContext } from "react";
 
 import { consultantsData } from "../utils/data/consultants";
-import { getAllConsultants } from "../utils/api";
+import { createPlacementList, getAllConsultants } from "../utils/api";
 
 const ConsultantsContext = createContext();
 
 export function ConsultantsProvider({ children }) {
   const [consultants, setConsultants] = useState([]);
   const [selectedConsultants, setSelectedConsultants] = useState([]);
+  const [fakeConsultants, setFakeConsultants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchAllConsultants = async () => {
@@ -20,6 +21,7 @@ export function ConsultantsProvider({ children }) {
   };
 
   const postPlacementList = async (id, arr) => {
+    console.log("arr", arr);
     try {
       setIsLoading(true);
       const response = await createPlacementList(id, arr);
@@ -35,6 +37,7 @@ export function ConsultantsProvider({ children }) {
     }
 
     setSelectedConsultants((prev) => [selected, ...prev]);
+    setFakeConsultants((prev) => [selected, ...prev]);
   };
 
   const handleDeleteSelectedUser = (id) => {

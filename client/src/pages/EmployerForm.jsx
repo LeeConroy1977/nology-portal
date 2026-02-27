@@ -12,7 +12,7 @@ const EmployerForm = () => {
     contactName: "",
     email: "",
     phoneNumber: "",
-    comment: "",
+    comments: "",
     isAdmin: false,
   });
 
@@ -35,7 +35,7 @@ const EmployerForm = () => {
       contactName: "",
       email: "",
       phoneNumber: "",
-      comment: "",
+      comments: "",
       isAdmin: false,
     });
   };

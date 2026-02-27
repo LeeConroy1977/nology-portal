@@ -5,8 +5,19 @@ import { useNavigate } from "react-router";
 
 const Placements = () => {
   const { placements, fetchAllPlacements, isLoading } = usePlacements();
+  const { setIndividualPlacement } = usePlacements();
   const navigate = useNavigate();
   const [size, setSize] = useState(120);
+
+  const obj = {
+    id: 35,
+    companyName: "Apple",
+    numberOfConsultants: 3,
+    contactName: "Steve Jobs",
+    email: "steve@jobs.io",
+    phoneNumber: "12345678912",
+    comment: "We have jobs!",
+  };
 
   useEffect(() => {
     fetchAllPlacements();
@@ -15,6 +26,9 @@ const Placements = () => {
   const handleClick = (id) => {
     navigate(`/placements/${id}`);
   };
+
+  const arr = [...placements, obj];
+  setIndividualPlacement(obj);
 
   return (
     <div className="w-screen h-screen bg-[#F2F2F2] flex flex-col items-center gap-6">
@@ -28,9 +42,9 @@ const Placements = () => {
           </div>
         )}
         {placements &&
-          placements
-            .reverse()
-            .slice(0, 4)
+          arr
+            // .reverse()
+            // .slice(0, 4)
             .map((placement) => {
               return (
                 <PlacementCard

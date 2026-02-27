@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const API = import.meta.env.VITE_API_URL;
 
 export const getAllConsultants = async () => {
@@ -29,12 +28,14 @@ export const getConsultantById = async (id) => {
 };
 
 export const createEmployer = async (user) => {
+  console.log("API user", user);
   try {
     const response = await axios.post(`${API}/users`, user);
     console.log(response);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      console.log(error);
       throw new Error(
         error.response?.data?.message || "Failed to create employer",
       );
@@ -48,7 +49,7 @@ export const createPlacementList = async (id, consultants) => {
   try {
     console.log("create placement ran!!");
     const response = await axios.post(
-      `${API}/${id}/view-selections`,
+      `${API}/users/${id}/view-selections`,
       consultants,
     );
     return response.data;
