@@ -20,7 +20,7 @@ public class Catalina4Application {
 			@Override
 			public void addCorsMappings(@NonNull CorsRegistry registry) {
 				registry.addMapping("/**").allowedOrigins(
-						"http://localhost:5173")
+						"http://localhost:5173", "https://nology-placement-portal.netlify.app")
 						.allowedMethods("*")
 						.allowedHeaders("*")
 						.allowCredentials(true);
