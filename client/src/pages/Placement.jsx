@@ -9,8 +9,8 @@ const Placement = () => {
   useEffect(() => {
     fetchPlacementsById(id);
   }, []);
-
-  return <div>Placement</div>;
+  console.log(individualPlacement);
+  return <div></div>;
 };
 
 export default Placement;

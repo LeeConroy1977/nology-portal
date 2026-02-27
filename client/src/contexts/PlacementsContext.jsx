@@ -4,27 +4,29 @@ import {
   getConsultantById,
   getPlacementById,
 } from "../utils/api";
-import { placementData } from "../utils/data/placement";
 
 const PlacementsContext = createContext();
 
 export function PlacementsProvider({ children }) {
   const [placements, setPlacements] = useState([]);
   const [individualPlacement, setIndividualPlacement] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchAllPlacements = async () => {
+    console.log("This ran");
     try {
+      setIsLoading(true);
       const response = await getAllPlacements();
-      //   setPlacements(response.data);
-      setPlacements(placementData);
+      console.log(response.placements);
+      setPlacements(response.placements);
+      setIsLoading(false);
     } catch (error) {}
   };
 
   const fetchPlacementsById = async (id) => {
     try {
       const response = await getPlacementById(id);
-      //   setPlacements(response.data);
-      setIndividualPlacement(response.data);
+      setIndividualPlacement(response);
     } catch (error) {}
   };
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API = "https://nology-portal-production.up.railway.app/api/v1";
+
+const API = import.meta.env.VITE_API_URL;
 
 export const getAllConsultants = async () => {
   try {
@@ -29,12 +30,32 @@ export const getConsultantById = async (id) => {
 
 export const createEmployer = async (user) => {
   try {
-    const response = await axios.post("", user);
+    const response = await axios.post(`${API}/users`, user);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message || "Failed to create employer",
+      );
+    }
+
+    throw new Error("An unexpected error occurred while creating employer");
+  }
+};
+
+export const createPlacementList = async (id, consultants) => {
+  try {
+    console.log("create placement ran!!");
+    const response = await axios.post(
+      `${API}/${id}/view-selections`,
+      consultants,
+    );
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       throw new Error(
-        error.response.data.message || "Failed to create employer",
+        error.response.data.message || "Failed to create placements",
       );
     }
   }
@@ -42,7 +63,7 @@ export const createEmployer = async (user) => {
 
 export const getAllPlacements = async () => {
   try {
-    const response = await axios.get("");
+    const response = await axios.get(`${API}/placements`);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {

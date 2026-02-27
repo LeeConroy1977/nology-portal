@@ -8,12 +8,23 @@ const ConsultantsContext = createContext();
 export function ConsultantsProvider({ children }) {
   const [consultants, setConsultants] = useState([]);
   const [selectedConsultants, setSelectedConsultants] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchAllConsultants = async () => {
-    const response = await getAllConsultants();
-    setConsultants(response);
+    try {
+      setIsLoading(true);
+      const response = await getAllConsultants();
+      setConsultants(response);
+      setIsLoading(false);
+    } catch (error) {}
+  };
 
-    // setConsultants([...consultantsData]);
+  const postPlacementList = async (id, arr) => {
+    try {
+      setIsLoading(true);
+      const response = await createPlacementList(id, arr);
+      setIsLoading(false);
+    } catch (error) {}
   };
 
   const handleSelectedConsultants = (id) => {
@@ -45,6 +56,8 @@ export function ConsultantsProvider({ children }) {
         setSelectedConsultants,
         handleSelectedConsultants,
         handleDeleteSelectedUser,
+        isLoading,
+        postPlacementList,
       }}>
       {" "}
       {children}

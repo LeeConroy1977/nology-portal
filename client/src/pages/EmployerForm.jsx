@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { NewUser } from "../contexts/NewUserContext";
+import { useNewUser } from "../contexts/NewUserContext";
 import { useNavigate } from "react-router";
 import { useUser } from "../contexts/UserContext";
 
 const EmployerForm = () => {
-  const { createUser } = NewUser();
+  const { createUser, setEmployer } = useNewUser();
   const { setIsFormData } = useUser();
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
@@ -13,6 +13,7 @@ const EmployerForm = () => {
     email: "",
     phoneNumber: "",
     comment: "",
+    isAdmin: false,
   });
 
   const validation = {
@@ -35,18 +36,20 @@ const EmployerForm = () => {
       email: "",
       phoneNumber: "",
       comment: "",
+      isAdmin: false,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
+      console.log("form submitted");
+      console.log("new user submitted", newUser);
       createUser(newUser);
+      setEmployer(newUser);
       resetUser();
       setIsFormData(true);
       navigate("/consultants");
-    } else {
-      alert("Please fill all required fields correctly.");
     }
   };
 
@@ -57,7 +60,7 @@ const EmployerForm = () => {
       </h1>
       <form
         action="submit"
-        className="flex flex-col justify-start items-center w-[88%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[36%] 2xl:w-[30%] h-[76%] sm:h-[80%] md:h-[74%] lg:h-[78%] bg-white mt-3 sm:mt-6 xl:mt-8 2xl:mt-8 p-6 sm:p-8 gap-2 rounded-lg">
+        className="flex flex-col justify-start items-center w-[88%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w-[36%] 2xl:w-[30%] h-[76%] sm:h-[80%] md:h-[74%] lg:h-[76%] bg-white mt-3 sm:mt-6 xl:mt-8 2xl:mt-8 p-6 sm:p-8 gap-2 rounded-lg">
         <div className="mt-1 sm:mt-6 md:mt-1 w-full">
           <label
             htmlFor=""
@@ -126,7 +129,7 @@ const EmployerForm = () => {
             id=""
             value={newUser.comment}
             onChange={(e) => handleInput(e.target.name, e.target.value)}
-            className={`${isValid ? "border-purple-500" : "border-gray-300"} w-full h-[5rem] sm:h-[7rem]  md:h-[4.6rem] lg:h-[5.4rem] xl:h-[10rem] 2xl:h-[11rem] mt-1 rounded-lg border-2 border-gray-300 p-4 focus:outline-none focus:ring-0`}></textarea>
+            className={`${isValid ? "border-purple-500" : "border-gray-300"} w-full h-[5rem] sm:h-[7rem]  md:h-[4.6rem] lg:h-[5.4rem] xl:h-[10rem] 2xl:h-[10rem] mt-1 rounded-lg border-2 border-gray-300 p-4 focus:outline-none focus:ring-0`}></textarea>
         </div>
         {isValid && (
           <button

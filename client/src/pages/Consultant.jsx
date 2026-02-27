@@ -1,16 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useConsultant } from "../contexts/ConsultantContext";
 import ProjectCard from "../components/ProjectCard";
 import { useWindowWidth } from "../contexts/WindowWidthContext";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useConsultants } from "../contexts/ConsultantsContext";
+import { ClipLoader } from "react-spinners";
 
 const Consultant = () => {
   const { id } = useParams();
   const width = useWindowWidth();
   const { consultant, fetchConsultantById } = useConsultant();
-  const { selectedConsultants, handleSelectedConsultants } = useConsultants();
+  const { selectedConsultants, handleSelectedConsultants, isLoading } =
+    useConsultants();
+  const [size, setSize] = useState(120);
 
   const {
     name,
@@ -30,11 +33,18 @@ const Consultant = () => {
     fetchConsultantById(id);
   }, [id]);
 
+  console.log(consultant);
+
   const isSelected = selectedConsultants.find((c) => c.id === Number(id));
 
   return (
     <div className="flex flex-col items-center justify-start w-screen min-h-full bg-white pb-12 sm:p-8 xl:p-16 xl:py-10">
-      {consultant && (
+      {isLoading && (
+        <div className="flex justify-center mt-32">
+          <ClipLoader speedMultiplier={1} size={size} color="#7c3aed" />
+        </div>
+      )}
+      {!isLoading && consultant && (
         <>
           <div
             onClick={() => navigate(-1)}

@@ -13,6 +13,7 @@ import Welcome from "./pages/Welcome";
 import LandingPage from "./pages/LandingPage";
 import Placements from "./pages/Placements";
 import Placement from "./pages/Placement";
+import Confirmation from "./pages/Confirmation";
 
 function App() {
   const [isOpen, setIsOpen] = useState();
@@ -31,12 +32,12 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/employer-form" element={<EmployerForm />} />
-          {/* <Route path="/placements" element={<ViewPlacements />} /> */}
           <Route path="/selections" element={<ViewSelections />} />
           <Route path="/consultants" element={<Consultants />} />
           <Route path="/consultants/:id" element={<Consultant />} />
           <Route path="/placements" element={<Placements />} />
           <Route path="/placements/:id" element={<Placement />} />
+          <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
       </AppLayout>
     </div>

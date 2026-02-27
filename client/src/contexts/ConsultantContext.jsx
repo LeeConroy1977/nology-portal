@@ -1,18 +1,18 @@
 import { createContext, useState, useContext } from "react";
 import { getConsultantById } from "../utils/api";
-import { consultantsData } from "../utils/data/consultants";
 
 const ConsultantContext = createContext();
 
 export function ConsultantProvider({ children }) {
   const [consultant, setConsultant] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchConsultantById = async (id) => {
-    const response = consultantsData.find((con) => con.id === Number(id));
-    setConsultant(response);
     try {
-      // const response = await getConsultantById(id);
-      // setConsultant(response.data);
+      setIsLoading(true);
+      const response = await getConsultantById(id);
+      setConsultant(response);
+      setIsLoading(false);
     } catch (error) {}
   };
 

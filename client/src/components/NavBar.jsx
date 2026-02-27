@@ -1,18 +1,17 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useWindowWidth } from "../contexts/WindowWidthContext";
 import { useUser } from "../contexts/UserContext";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const NavBar = ({ setIsOpen }) => {
   const width = useWindowWidth();
   const { user, setUser, isFormData } = useUser();
-
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleHamburgerClick = () => {
     setIsOpen((prev) => !prev);
-    v;
   };
 
   const handleSignOut = () => {
@@ -58,6 +57,16 @@ const NavBar = ({ setIsOpen }) => {
 
             {user && !user.isAdmin && isFormData && (
               <>
+                {location.pathname === "/confirmation" && (
+                  <li>
+                    <NavLink
+                      className="px-8 py-3 border-2 border-purple-500 rounded-lg"
+                      to="/employer-form">
+                      Create placement
+                    </NavLink>
+                  </li>
+                )}
+
                 <li>
                   <NavLink
                     className={({ isActive }) =>
